@@ -363,7 +363,7 @@
     {
         "name": "Damsel",
         "script": "Experimental",
-        "first_night_order": 16.0,
+        "first_night_order": "-",
         "night_order": "-",
         "ability": [
             "Passive"
