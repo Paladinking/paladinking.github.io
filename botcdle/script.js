@@ -1,5 +1,3 @@
-
-
 const data = await fetch('data.json').then((res) => res.json());
 const choice = document.getElementById('characterChoice');
 const input = document.getElementById("myInput");
@@ -17,8 +15,6 @@ function getDailyIndex() {
 }
 
 let target = data[getDailyIndex()];
-console.log(target);
-
 
 function makeGuess(row) {
     const el = document.createElement("tr");
