@@ -38,7 +38,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Daytime ability"
+            "Daytime ability",
+            "Victory Condition"
         ],
         "type": "Townsfolk",
         "icon": "https://wiki.bloodontheclocktower.com/images/8/8e/Icon_alsaahir.png"
@@ -53,7 +54,9 @@
             "Pick player(s) at night",
             "Pick character(s) at night",
             "Daytime ability",
-            "Setup"
+            "Setup",
+            "Learn info at night",
+            "Victory Condition"
         ],
         "type": "Townsfolk",
         "icon": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_amnesiac.png"
@@ -98,7 +101,8 @@
         "night_order": "-",
         "ability": [
             "Passive",
-            "Setup"
+            "Setup",
+            "Victory Condition"
         ],
         "type": "Townsfolk",
         "icon": "https://wiki.bloodontheclocktower.com/images/4/43/Icon_atheist.png"
@@ -355,7 +359,8 @@
         "first_night_order": 17.0,
         "night_order": 22.0,
         "ability": [
-            "Daytime ability"
+            "Daytime ability",
+            "Victory Condition"
         ],
         "type": "Townsfolk",
         "icon": "https://wiki.bloodontheclocktower.com/images/6/6c/Icon_cultleader.png"
@@ -366,7 +371,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Victory Condition"
         ],
         "type": "Outsider",
         "icon": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_damsel.png"
@@ -444,6 +450,7 @@
         "night_order": "-",
         "ability": [
             "Start knowing info",
+            "Victory Condition",
             "Passive"
         ],
         "type": "Minion",
@@ -489,7 +496,8 @@
         "first_night_order": 14.0,
         "night_order": 11.0,
         "ability": [
-            "Pick player(s) at night"
+            "Pick player(s) at night",
+            "Victory Condition"
         ],
         "type": "Minion",
         "icon": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_fearmonger.png"
@@ -614,7 +622,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Daytime ability"
         ],
         "type": "Outsider",
         "icon": "https://wiki.bloodontheclocktower.com/images/2/2b/Icon_golem.png"
@@ -703,7 +712,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Victory Condition"
         ],
         "type": "Outsider",
         "icon": "https://wiki.bloodontheclocktower.com/images/4/4a/Icon_heretic.png"
@@ -827,7 +837,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Victory Condition"
         ],
         "type": "Outsider",
         "icon": "https://wiki.bloodontheclocktower.com/images/b/bc/Icon_klutz.png"
@@ -861,7 +872,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Victory Condition"
         ],
         "type": "Demon",
         "icon": "https://wiki.bloodontheclocktower.com/images/a/a7/Icon_leviathan.png"
@@ -998,7 +1010,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Victory Condition"
         ],
         "type": "Townsfolk",
         "icon": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_mayor.png"
@@ -1221,7 +1234,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Victory Condition"
         ],
         "type": "Outsider",
         "icon": "https://wiki.bloodontheclocktower.com/images/a/a3/Icon_politician.png"
@@ -1367,7 +1381,8 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Passive"
+            "Passive",
+            "Victory Condition"
         ],
         "type": "Outsider",
         "icon": "https://wiki.bloodontheclocktower.com/images/c/c9/Icon_saint.png"

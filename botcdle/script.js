@@ -35,7 +35,13 @@ function makeGuess(row) {
     let orderClass = row.first_night_order === target.first_night_order ? "correct" : "incorrect";
     let orderText = "";
     if (row.first_night_order === target.first_night_order) {
-        orderText = "Equal";
+        if (row.first_night_order === "-") {
+            orderText = "Does not wake";
+        } else if (row.first_night_order === "?") {
+            orderText = "Unpredictable";
+        }  else {
+            orderText = "Equal";
+        }
     } else if (row.first_night_order !== "-" && row.first_night_order !== "?" &&
               target.first_night_order !== "-" && target.first_night_order !== '?') {
         orderClass = "partCorrect";
@@ -47,7 +53,13 @@ function makeGuess(row) {
     orderClass = row.night_order === target.night_order ? "correct" : "incorrect";
 
     if (row.night_order === target.night_order) {
-        orderText = "Equal";
+        if (row.night_order === "-") {
+            orderText = "Does not wake";
+        } else if (row.night_order === "?") {
+            orderText = "Unpredictable";
+        }  else {
+            orderText = "Equal";
+        }
     } else if (row.night_order !== "-" && row.night_order !== "?" &&
               target.night_order !== "-" && target.night_order !== '?') {
         orderClass = "partCorrect";
