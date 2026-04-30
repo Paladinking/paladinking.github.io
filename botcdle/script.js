@@ -3,6 +3,7 @@
 const data = await fetch('data.json').then((res) => res.json());
 const choice = document.getElementById('characterChoice');
 const input = document.getElementById("myInput");
+const colorblind = document.getElementById("colorblindMode");
 
 function getDailyIndex() {
     const now = new Date();
@@ -17,20 +18,21 @@ function getDailyIndex() {
 }
 
 let target = data[getDailyIndex()];
+let guesses = 0;
 console.log(target);
-
 
 function makeGuess(row) {
     const el = document.createElement("tr");
+    const cb = colorblind.checked ? "-colorblind" : "";
 
     const nameClass = row.name === target.name ? "correct" : "icon";
-    let s = `<td class="${nameClass}"><img src=${row.icon} width="96px" height="96px"></img></td>`;
+    let s = `<td class="${nameClass + cb}"><img src=${row.icon} width="96px" height="96px"></img></td>`;
     const typeClass = row.type === target.type ? "correct" : "incorrect";
-    s += `<td class="${typeClass}">${row.type}</td>`;
+    s += `<td class="${typeClass + cb}">${row.type}</td>`;
 
 
     const scriptClass = row.script === target.script ? "correct" : "incorrect";
-    s += `<td class="${scriptClass}">${row.script}</td>`;
+    s += `<td class="${scriptClass + cb}">${row.script}</td>`;
 
     let orderClass = row.first_night_order === target.first_night_order ? "correct" : "incorrect";
     let orderText = "";
@@ -49,7 +51,7 @@ function makeGuess(row) {
     } else {
         orderText = "Not comparable";
     }
-    s += `<td class="${orderClass}">${orderText}</td>`;
+    s += `<td class="${orderClass + cb}">${orderText}</td>`;
     orderClass = row.night_order === target.night_order ? "correct" : "incorrect";
 
     if (row.night_order === target.night_order) {
@@ -67,7 +69,7 @@ function makeGuess(row) {
     } else {
         orderText = "Not comparable";
     }
-    s += `<td class="${orderClass}">${orderText}</td>`;
+    s += `<td class="${orderClass + cb}">${orderText}</td>`;
     let matches = 0;
     for (const a of row.ability) {
         if (target.ability.find(e => e === a) !== undefined) {
@@ -76,22 +78,27 @@ function makeGuess(row) {
     }
     let abilityClass = "incorrect";
     if (matches > 0) {
-        console.log(matches, target.ability.length, row.ability.length);
         if (matches === target.ability.length && matches === row.ability.length) {
             abilityClass = "correct";
         } else {
             abilityClass = "partCorrect";
         }
     }
-    s += `<td class="${abilityClass}">${row.ability.join('<br>')}</td>`;
+    s += `<td class="${abilityClass + cb}">${row.ability.join('<br>')}</td>`;
     el.innerHTML = s;
 
     const root = document.querySelector("#guesses tbody");
     root.appendChild(el);
+
+    guesses += 1;
     
     if (row.name === target.name) {
         input.disabled = true;
-        window.alert("You got it!");
+        if (guesses === 1) {
+            window.alert(`You got it 1 guess!`);
+        } else {
+            window.alert(`You got it in ${guesses} guesses!`);
+        }
     }
 }
 
@@ -111,19 +118,16 @@ function setup() {
 
         const onFocus = () => {
             el.classList.add("focus");
-            console.log(el.className, el.classList);
         };
 
         const onBlur = () => {
             el.classList.remove("focus");
-            console.log(el.className, el.classList);
         };
 
         const onClick = () => {
             const root = document.getElementById('guesses');
             choice.removeChild(el);
             makeGuess(row);
-
 
             input.focus();
             input.value = '';
@@ -137,13 +141,13 @@ function setup() {
             } 
         }
 
-
         el.addEventListener('click', onClick);
         el.addEventListener('focus', onFocus);
         el.addEventListener('blur', onBlur);
         el.addEventListener('keydown', onKey);
     }
 
+    guesses = 0;
     input.value = '';
     input.disabled = false;
     input.focus();
@@ -208,3 +212,25 @@ document.getElementById("newPuzzle").addEventListener("click", () => {
     console.log(target);
     setup();
 });
+
+colorblind.checked = localStorage.getItem("colorblind-mode") === "true";
+
+colorblind.addEventListener("change", () => {
+    if (colorblind.checked) {
+        localStorage.setItem("colorblind-mode", "true");
+    } else {
+        localStorage.setItem("colorblind-mode", "false");
+    }
+    const root = document.querySelector("#guesses tbody");
+    for (const child of root.getElementsByTagName("td")) {
+        if (colorblind.checked) {
+            child.classList.replace("correct", "correct-colorblind");
+            child.classList.replace("incorrect", "incorrect-colorblind");
+            child.classList.replace("partCorrect", "partCorrect-colorblind");
+        } else {
+            child.classList.replace("correct-colorblind", "correct");
+            child.classList.replace("incorrect-colorblind", "incorrect");
+            child.classList.replace("partCorrect-colorblind", "partCorrect");
+        }
+    }
+})

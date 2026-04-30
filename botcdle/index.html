@@ -3,6 +3,13 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+p, label, th, td {
+  font: 1rem "Fira Sans", sans-serif;
+}
+h2 {
+  font: 2rem "Fira Sans", sans-serif;
+}
+
 .dropbtn {
   background-color: #04AA6D;
   color: white;
@@ -89,6 +96,18 @@
     background-color: darkred;
 }
 
+.correct-colorblind {
+    background-color: #A2BB8B;
+}
+
+.partCorrect-colorblind {
+    background-color: #B3863F;
+}
+
+.incorrect-colorblind {
+    background-color: #A35E99;
+}
+
 #characterChoice :hover {background-color: #ddd;}
 .searchTarget {background-color: #ddd;}
 .focus {background-color: #ddd;}
@@ -121,6 +140,10 @@
     <input type="text" placeholder="Guess.." id="myInput">
   </div>
   <button id="newPuzzle" style="height: 48px">New Puzzle</button>
+  <div>
+    <input type="checkbox" id="colorblindMode" name="colorblindMode" />
+    <label for="colorblindMode" >Colorblind Mode</label>
+  </div>
 </div>
 
 
