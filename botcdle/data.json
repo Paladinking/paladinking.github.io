@@ -598,7 +598,7 @@
         "first_night_order": "-",
         "night_order": "-",
         "ability": [
-            "Daytime ability"
+            "Daytime ability", "Victory Condition"
         ],
         "type": "Minion",
         "icon": "https://wiki.bloodontheclocktower.com/images/e/e2/Icon_goblin.png"
