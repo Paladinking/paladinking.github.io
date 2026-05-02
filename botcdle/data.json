@@ -1413,7 +1413,7 @@
         "name": "Scarlet Woman",
         "script": "Trouble Brewing",
         "first_night_order": "-",
-        "night_order": 13.0,
+        "night_order": "-",
         "ability": [
             "Passive"
         ],
